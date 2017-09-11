@@ -51,6 +51,13 @@ describe("the `j` function", function() {
 			assert.equal(div.props.className, "test-class");
 		});
 
+		it("should treat a string value as className", function() {
+			const div = j({div: "test-class"});
+
+			assert.equal(div.type, "div");
+			assert.equal(div.props.className, "test-class");
+		});
+
 		it("should error if tag object is empty", function() {
 			assert.throws(() => j({}));
 		});
@@ -93,6 +100,13 @@ describe("the `j` function", function() {
 
 		it("should receive props from array[1]", function() {
 			const comp = j([Component, {className: "test-class"}]);
+
+			assert.equal(comp.type, Component);
+			assert.equal(comp.props.className, "test-class");
+		});
+
+		it("should treat a string array[1] as className", function() {
+			const comp = j([Component, "test-class"]);
 
 			assert.equal(comp.type, Component);
 			assert.equal(comp.props.className, "test-class");

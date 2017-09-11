@@ -5,10 +5,11 @@ This gives a cleaner, easier to use means of jsx-less react.
 
 ### jsx
 ```jsx
-<div className="someClass">
+<div className="some-class">
 	<span>Hello!</span>
 	<a href="something.com">click me!</a>
 	<div>I'm a block</div>
+	<button className="button-class" />
 	<SomeComponent />
 	<SomeOtherComponentWithProp prop="value" />
 </div>
@@ -16,10 +17,11 @@ This gives a cleaner, easier to use means of jsx-less react.
 
 ### jsx-less react
 ```js
-React.createElement("div", {className: "someClass"},
+React.createElement("div", {className: "some-class"},
 	React.createElement("span", null, "Hello!"),
 	React.createElement("a", {href: "something.com"},"click me!"),
 	React.createElement("div", null, "I'm a block"),
+	React.createElement("button", {className: "button-class"}),
 	React.createElement(SomeComponent),
 	React.createElement(SomeOtherComponentWithProp, {prop: "value"}),
 );
@@ -29,10 +31,11 @@ React.createElement("div", {className: "someClass"},
 ```js
 const j = require("react-jenny");
 
-j({div: {className: "someClass"}}, [
+j({div: {className: "some-class"}}, [
 	j({span: 0}, "Hello!"),
 	j({a: {href: "something.com"}}, "click me!"),
 	j("div", "I'm a block"),
+	j({button: "button-class"}),
 	j(SomeComponent),
 	j([SomeOtherComponentWithProp, {prop: "value"}]),
 ]);

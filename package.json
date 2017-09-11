@@ -1,6 +1,6 @@
 {
   "name": "react-jenny",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React plugin which adds Jenny syntax for React.createElement",
   "main": "index.js",
   "scripts": {

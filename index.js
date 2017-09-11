@@ -1,5 +1,13 @@
 const {createElement} = require("react");
 
+function processProps(props) {
+	if (typeof props === "string") {
+		return {className: props};
+	}
+
+	return props;
+}
+
 module.exports = function j(tagObject, children) {
 	if (!(children instanceof Array)) {
 		children = children ? [children] : [];
@@ -8,7 +16,7 @@ module.exports = function j(tagObject, children) {
 	if (tagObject instanceof Array) {
 		return createElement(
 			tagObject[0],
-			tagObject[1],
+			processProps(tagObject[1]),
 			...children,
 		);
 	}
@@ -25,7 +33,7 @@ module.exports = function j(tagObject, children) {
 
 	return createElement(
 		key,
-		tagObject[key],
+		processProps(tagObject[key]),
 		...children,
 	);
 };
